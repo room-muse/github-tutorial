@@ -56,11 +56,25 @@
       .button-4 {
         background-color: purple;
       }
+
+      body.dark {
+        background-color: #121212;
+        color: #f0f0f0;
+      }
+
+      body.dark p {
+        color: #aaa;
+      }
+
+      body.dark .dark-mode-button {
+        background-color: #f0f0f0;
+        color: #222;
+      }
     </style>
   </head>
   <body>
     <div class="top-bar">
-      <button class="toggle-theme-button">Toggle Theme</button>
+      <button class="dark-mode-button">Toggle Theme</button>
     </div>
     <h1>GitHub Tutorial</h1>
     <div class="button-row">
@@ -69,5 +83,14 @@
       <button class="button-3">Green Button</button>
       <button class="button-4">Purple Button</button>
     </div>
+    <script>
+      const darkModeButton = document.querySelector(".dark-mode-button");
+      darkModeButton.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        darkModeButton.textContent = document.body.classList.contains("dark")
+          ? "Light Mode"
+          : "Dark Mode";
+      });
+    </script>
   </body>
 </html>
